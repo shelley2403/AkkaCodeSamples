@@ -7,12 +7,65 @@
   <version>1.0-SNAPSHOT</version>
   <name>AkkaCodeSamples</name>
   <url>http://maven.apache.org</url>
+
+  <properties>
+    <!-- PLUGINS -->
+    <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
+    <scalatest-maven-plugin.version>1.0</scalatest-maven-plugin.version>
+    <scalastyle.maven.plugin.version>0.5.0</scalastyle.maven.plugin.version>
+
+    <!-- LIBS -->
+    <scala.major.version>2.12</scala.major.version>
+    <scala.minor.version>4</scala.minor.version>
+    <akka.version>2.4.17</akka.version>
+
+    <!-- TEST -->
+    <scoverage.version>1.3.0</scoverage.version>
+    <scala.test.version>2.0</scala.test.version>
+  </properties>
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor_2.11 -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <groupId>com.typesafe.akka</groupId>
+      <artifactId>akka-actor_2.12</artifactId>
+      <version>2.5.6</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.major.version}.${scala.minor.version}</version>
     </dependency>
   </dependencies>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.scalatest</groupId>
+          <artifactId>scalatest-maven-plugin</artifactId>
+          <version>${scalatest-maven-plugin.version}</version>
+          <configuration>
+            <reportsDirectory>target/scalatest-reports</reportsDirectory>
+            <junitxml>.</junitxml>
+            <filereports>WDF ScalaTestSuite.txt</filereports>
+            <htmlreporters>target/surefire-reports</htmlreporters>
+          </configuration>
+          <executions>
+            <execution>
+              <id>test</id>
+              <goals>
+                <goal>test</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>report</id>
+              <goals>
+                <goal>reporter</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
