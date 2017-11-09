@@ -29,7 +29,5 @@ object HelloAkka extends App {
   // Lifecycle
   // Initialized --prestart()--> started ----stop----> stopped ----postStop()---> Terminated (see fig. attached)
 
-  // Props is configuration class to specify options for creation of actors
-
 
 }

@@ -8,7 +8,8 @@ object MusicController {
   case object Play extends ControllerMsg
   case object Stop extends ControllerMsg
 
-  //Recommended
+  // Props is configuration class to specify options for creation of actors
+  // Recommended
   def props = Props[MusicController]
 }
 

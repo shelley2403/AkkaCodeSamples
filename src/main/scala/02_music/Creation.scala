@@ -1,7 +1,6 @@
 package music
 
-import akka.actor.{Actor, ActorSystem, Props}
-import music.MusicController.{Play, Stop}
+import akka.actor.{ActorSystem, Props}
 import music.MusicPlayer.{StartMusic, StopMusic}
 
 object Creation extends App {
