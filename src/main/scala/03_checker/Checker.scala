@@ -116,4 +116,7 @@ object TalkToActor extends App {
 
   recorder ! CreateUser(User("nancy", "nancy@mail.com"))
   recorder ! CreateUser(User("Adam", "adam@mail.com"))
+
+  Thread.sleep(100)
+  system.terminate()
 }
