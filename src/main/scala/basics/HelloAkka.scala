@@ -1,16 +1,6 @@
-import akka.actor.{Actor, ActorSystem, Props}
+package basics
 
-// Define Actor Messages
-case class WhoToGreet(who: String)
-
-// Define Greeter Actor
-// The actor is an object which encapsulates state and behavior. They communicate by exchanging messages
-class Greeter extends Actor {
-  def receive = {
-    case WhoToGreet(message) => println(s"Hello $message")
-    case someString: String => println(s"Hello $someString")
-  }
-}
+import akka.actor.{ActorSystem, Props}
 
 object HelloAkka extends App {
 
@@ -37,7 +27,9 @@ object HelloAkka extends App {
   // Outside world ---- sends message to---> Actor ref ----dispatch---> Message dispatcher ----Runs/Enqueue----> Mail box ---Deque/Invoke---> Actor
 
   // Lifecycle
-  // Initialized --prestart()--> started ----stop----> stopped ----postStop()---> Terminated
+  // Initialized --prestart()--> started ----stop----> stopped ----postStop()---> Terminated (see fig. attached)
+
+  // Props is configuration class to specify options for creation of actors
 
 
 }
